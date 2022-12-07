@@ -1,5 +1,6 @@
 package com.plugin.myplugin;
 
+import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.Messages;
@@ -17,8 +18,6 @@ public class MyAction extends AnAction {
             ArrayList<MyProcess> options = new ProcessesParser(cmd)
                     .getProcesses();
 
-            Thread.sleep(200);
-
             MyDialogWrapper dialogWrapper = new MyDialogWrapper(options);
             dialogWrapper.show();
 
@@ -30,14 +29,17 @@ public class MyAction extends AnAction {
                         "end tell'"};
                 new ProcessBuilder(cmd).start();
 
+                //TODO local terminal in the IDE
+
+                ActionManager.getInstance().getAction("Terminal.OpenInTerminal").actionPerformed(e);
+                // рабочая тема ебать ^
+
             } else {
                 Messages.showMessageDialog("Failure", "No process was chosen", Messages.getQuestionIcon());
             }
 
         } catch (IOException ex) {
             Messages.showMessageDialog(ex.toString(), "IO Exception", Messages.getErrorIcon());
-        } catch (InterruptedException ex) {
-            Messages.showMessageDialog(ex.toString(), "Thread Exception", Messages.getErrorIcon());
         }
     }
 
