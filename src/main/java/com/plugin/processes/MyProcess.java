@@ -1,4 +1,4 @@
-package com.plugin.myplugin;
+package com.plugin.processes;
 
 public class MyProcess {
     private int PID;

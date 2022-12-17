@@ -1,4 +1,4 @@
-package com.plugin.myplugin;
+package com.plugin.processes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
