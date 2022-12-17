@@ -29,8 +29,6 @@ public class MyAction extends AnAction {
             pidDialogWrapper.show();
 
             if (pidDialogWrapper.chosenProcess != null) {
-                System.out.println(pidDialogWrapper.chosenProcess);
-
                 StatsDialogWrapper statsDialogWrapper = new StatsDialogWrapper();
                 statsDialogWrapper.show();
 

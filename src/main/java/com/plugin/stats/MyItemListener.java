@@ -25,7 +25,5 @@ public class MyItemListener implements ItemListener {
         } catch (NullPointerException exception) {
             System.out.println(exception.getMessage());
         }
-
-        System.out.println(topConfiguration.getConfiguration());
     }
 }
